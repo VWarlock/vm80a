@@ -485,7 +485,7 @@ set_location_assignment PIN_F15 -to de0_hex3[1]
 set_location_assignment PIN_B18 -to de0_hex3[0]
 set_location_assignment PIN_G16 -to de0_hex3[7]
 set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
-set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name SMART_RECOMPILE OFF
 set_global_assignment -name ALLOW_POWER_UP_DONT_CARE OFF
 set_global_assignment -name SYNTH_TIMING_DRIVEN_SYNTHESIS ON
 set_global_assignment -name PARTITION_NETLIST_TYPE POST_FIT -section_id Top
@@ -494,15 +494,24 @@ set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name EDA_NETLIST_WRITER_OUTPUT_DIR ../../sim/de0 -section_id eda_simulation
 set_global_assignment -name SAVE_DISK_SPACE OFF
 set_global_assignment -name NUM_PARALLEL_PROCESSORS 4
-set_global_assignment -name EDA_TEST_BENCH_FILE ../../tbe/tb80a.v -section_id tb80a
 set_global_assignment -name ENABLE_SIGNALTAP OFF
 set_global_assignment -name USE_SIGNALTAP_FILE out/stp4.stp
-set_global_assignment -name SOURCE_FILE ../../tbe/config.h
-set_global_assignment -name VERILOG_FILE ../../tbe/tb80a.v
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_RETIMING OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC_FOR_AREA OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_MAP_LOGIC_TO_MEMORY_FOR_AREA OFF
+set_global_assignment -name CYCLONEII_OPTIMIZATION_TECHNIQUE BALANCED
+set_global_assignment -name AUTO_RESOURCE_SHARING ON
+set_global_assignment -name EDA_TEST_BENCH_FILE ../../tbe/de0_tb0.v -section_id tb80a
+set_global_assignment -name PHYSICAL_SYNTHESIS_ASYNCHRONOUS_SIGNAL_PIPELINING OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_EFFORT EXTRA
+set_global_assignment -name VERILOG_FILE ../../tbe/de0_tb0.v
 set_global_assignment -name VERILOG_FILE ../../rtl/de0/de0_top.v
+set_global_assignment -name VERILOG_FILE ../../rtl/de0/de0_pll.v
 set_global_assignment -name VERILOG_FILE ../../rtl/de0/de0_mem.v
 set_global_assignment -name VERILOG_FILE ../../rtl/de0/de0_uart.v
-set_global_assignment -name VERILOG_FILE ../../rtl/vm80a.v
+set_global_assignment -name VERILOG_FILE ../../rtl/vm80_wb.v
 set_global_assignment -name MIF_FILE ../../../tst/rom/memini.mif
-set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

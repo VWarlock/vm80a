@@ -115,9 +115,7 @@ begin
    if (wb_rst_i)
       wb_dat_o <= 8'h00;
    else
-//
-//    if (wb_cyc_i & wb_stb_i & ~wb_ack_o)
-//
+      if (wb_cyc_i & wb_stb_i & ~wb_ack_o)
          begin
             if (wb_adr_i[0])
                wb_dat_o <= (tx_ready << 7)
